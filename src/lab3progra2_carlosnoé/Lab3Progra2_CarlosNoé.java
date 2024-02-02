@@ -1,20 +1,95 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package lab3progra2_carlosnoé;
 
-/**
- *
- * @author cd507
- */
+import java.util.Scanner;
+
 public class Lab3Progra2_CarlosNoé {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc= new Scanner()
+        boolean Bandera = true;
+        while (Bandera != false) {
+
+            System.out.println("--Bienvenido al menu-- \n"
+                    + "Ingrese '1' Para Agregar Mascotas \n"
+                    + "Ingrese '2' Para Listar Las Mascotas Creadas \n"
+                    + "Ingrese '3' Para Modificar la informacion de las mascotas \n"
+                    + "Ingrese '4' Para Eliminar Alguna Mascota \n"
+                    + "Ingrese '5' Para visualizar la Mascota mas antigua \n"
+                    + "Ingrese '6' Para visualizar las Mascotas de color Negro \n"
+                    + "Ingrese '7' Para Ingresar a la calculadora de edades (2) \n"
+                    + "Ingrese '8' Para Salir");
+            
+
+            if ((elec > 0) && (elec < 7)) {
+                switch (elec) {
+                    case 1:
+                        break;
+                    case 2:
+                        
+       
+                        break;
+                    case 3:
+                       
+                        break;
+
+                    case 4:
+                        
+                        break;
+
+                    case 5:
+                        
+                        break;
+                    case 6:
+                        
+                        break;
+                    case 7:
+                       
+                        break;
+
+                    case 8:
+                        Bandera = false;
+                        break;
+                }
+            } else {
+                
+            }
+        }
+    }
+
+    //Validaciones
+    public static boolean VerrNaturaleza(String Naturaleza) {
+        if (Naturaleza.equalsIgnoreCase("Timido")) {
+            return true;
+        } else if (Naturaleza.equalsIgnoreCase("Energetico")) {
+            return true;
+        } else if (Naturaleza.equalsIgnoreCase("Misterioso")) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
+    public static boolean Numero0a100(int numero){
+        if (numero>0 && numero <101) {
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+    public static boolean Numero1a3(int numero){
+        switch (numero) {
+            case 1:
+                return true;
+            case 2:
+                return true;
+
+            case 3:
+                return true;  
+            default:
+                    return false;
+        }
+        
+    }
 }
