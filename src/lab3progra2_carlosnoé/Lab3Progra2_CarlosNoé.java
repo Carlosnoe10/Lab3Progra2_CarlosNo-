@@ -168,6 +168,21 @@ public class Lab3Progra2_CarlosNoé {
                         break;
 
                     case 3:
+                        for (int i = 0; i < Equipo.size(); i++) {
+                            if (Equipo.get(i)instanceof FireType) {
+                                System.out.println(Equipo.get(i).toString());
+                            }
+                        }
+                        for (int i = 0; i < Equipo.size(); i++) {
+                            if (Equipo.get(i)instanceof WaterType) {
+                                System.out.println(Equipo.get(i).toString());
+                            }
+                        }
+                        for (int i = 0; i < Equipo.size(); i++) {
+                            if (Equipo.get(i)instanceof GrassType) {
+                                System.out.println(Equipo.get(i).toString());
+                            }
+                        }
                         break;
 
                     case 4:
