@@ -2,10 +2,10 @@ package lab3progra2_carlosnoé;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
-import javax.swing.colorchooser.ColorChooserComponentFactory;
 
 public class Lab3Progra2_CarlosNoé {
 
@@ -15,6 +15,7 @@ public class Lab3Progra2_CarlosNoé {
         JColorChooser colorChooser = new JColorChooser();
         ArrayList<Pokemon> Equipo = new ArrayList();
         ArrayList<Pokeball> Balls = new ArrayList();
+        Random random = new Random();
         while (Bandera != false) {
 
             System.out.println("----MENU PRINCIPAL---- \n"
@@ -163,21 +164,26 @@ public class Lab3Progra2_CarlosNoé {
                             System.out.println("Valor invalido");
                         } else {
                             Pokeball Pocket = new Pokeball(color, Serie, Efect);
+                            System.out.println("List");
                         }
 
                         break;
 
                     case 3:
+                        System.out.println("Tipos Fuego");
                         for (int i = 0; i < Equipo.size(); i++) {
                             if (Equipo.get(i) instanceof FireType) {
                                 System.out.println(i + ". " + Equipo.get(i).toString());
                             }
                         }
+                        System.out.println("Tipos Agua");
+
                         for (int i = 0; i < Equipo.size(); i++) {
                             if (Equipo.get(i) instanceof WaterType) {
                                 System.out.println(i + ". " + Equipo.get(i).toString());
                             }
                         }
+                        System.out.println("Tipos Planta");
                         for (int i = 0; i < Equipo.size(); i++) {
                             if (Equipo.get(i) instanceof GrassType) {
                                 System.out.println(i + ". " + Equipo.get(i).toString());
@@ -205,15 +211,14 @@ public class Lab3Progra2_CarlosNoé {
                                         }
                                     }
                                     System.out.println("Ingrese el numero del pokemon que quiere eliminar");
-                                    int DeletPok= ints1.nextInt();
-                                    if (Equipo.get(DeletPok)instanceof FireType) {
+                                    int DeletPok = ints1.nextInt();
+                                    if (Equipo.get(DeletPok) instanceof FireType) {
                                         Equipo.remove(DeletPok);
                                         System.out.println("Se ha eliminado correctamente");
-                                    }else{
+                                    } else {
                                         System.out.println("Pokemon no valido");
                                     }
-                                    
-                                    
+
                                     Menu2 = false;
                                     break;
                                 case 2:
@@ -223,11 +228,11 @@ public class Lab3Progra2_CarlosNoé {
                                         }
                                     }
                                     System.out.println("Ingrese el numero del pokemon que quiere eliminar");
-                                    int DeletPok1= ints1.nextInt();
-                                    if (Equipo.get(DeletPok1)instanceof WaterType) {
+                                    int DeletPok1 = ints1.nextInt();
+                                    if (Equipo.get(DeletPok1) instanceof WaterType) {
                                         Equipo.remove(DeletPok1);
                                         System.out.println("Se ha eliminado correctamente");
-                                    }else{
+                                    } else {
                                         System.out.println("Pokemon no valido");
                                     }
                                     Menu2 = false;
@@ -240,11 +245,11 @@ public class Lab3Progra2_CarlosNoé {
                                         }
                                     }
                                     System.out.println("Ingrese el numero del pokemon que quiere eliminar");
-                                    int DeletPok2= ints1.nextInt();
-                                    if (Equipo.get(DeletPok2)instanceof GrassType) {
+                                    int DeletPok2 = ints1.nextInt();
+                                    if (Equipo.get(DeletPok2) instanceof GrassType) {
                                         Equipo.remove(DeletPok2);
                                         System.out.println("Se ha eliminado correctamente");
-                                    }else{
+                                    } else {
                                         System.out.println("Pokemon no valido");
                                     }
                                     Menu2 = false;
@@ -260,6 +265,62 @@ public class Lab3Progra2_CarlosNoé {
                         break;
 
                     case 5:
+                        Scanner ints3 = new Scanner(System.in);
+                        for (int i = 0; i < Balls.size(); i++) {
+                            System.out.println(i + " " + Balls.get(i).toString());
+                        }
+                        int elec2 = ints3.nextInt();
+                        boolean Verificador = DentroDelArrayList(Balls, elec2);
+                        if (Verificador = false) {
+                            System.out.println("Mal Ingresado");
+                        } else {
+                            Pokeball sub = Balls.get(elec2);
+                            int RANDOM = random.nextInt(Equipo.size()) + 0;
+                            Pokemon Menos = Equipo.get(RANDOM);
+                            if (Menos.isAtrapat() == false) {
+                                System.out.println("EL POKEMON -" + Menos.getNombre() + "- HA APARECIDO");
+                                System.out.println("Ingrese huir(1) o Capturar(0)");
+                                int Safe = ints3.nextInt();
+                                switch (Safe) {
+                                    case 1:
+                                        System.out.println("Ha huido con cobardia y acertividad");
+                                        break;
+                                    case 2:
+                                        if (sub.getEficiencia() == 1) {
+                                            int Ran2 = random.nextInt(3) + 1;
+                                            if (sub.getEficiencia() == Ran2) {
+                                                Balls.remove(elec2);
+                                                Equipo.get(RANDOM).setPokebola(sub);
+                                            } else {
+                                                Balls.remove(elec2);
+                                                System.out.println("El Pokemon ha escapado");
+                                            }
+                                        } else if ((sub.getEficiencia() == 1) || (sub.getEficiencia() == 2)) {
+                                            int Ran2 = random.nextInt(3) + 1;
+                                            if (sub.getEficiencia() == Ran2) {
+                                                Balls.remove(elec2);
+                                                Equipo.get(RANDOM).setPokebola(sub);
+                                            } else {
+                                                Balls.remove(elec2);
+                                                System.out.println("El Pokemon ha escapado");
+                                            }
+                                        } else {
+                                            Balls.remove(elec2);
+                                            Equipo.get(RANDOM).setPokebola(sub);
+                                        }
+
+                                        break;
+
+                                    default:
+                                        System.out.println("Numero invalido");
+                                }
+
+                            } else {
+                                System.out.println("Ha desaparecido");
+                            }
+
+                        }
+
                         break;
 
                     case 6:
@@ -319,5 +380,13 @@ public class Lab3Progra2_CarlosNoé {
                 return false;
         }
 
+    }
+
+    public static boolean DentroDelArrayList(ArrayList<Pokeball> asan, int num) {
+        if ((num < 0) || (num > asan.size())) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

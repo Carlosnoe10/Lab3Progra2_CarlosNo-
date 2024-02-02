@@ -64,7 +64,7 @@ public class Pokemon {
                 + "NumPokeDex= " + NumPokeDex + "\n"
                 + "Naturaleza= " + Naturaleza + "\n"
                 + "Atrapat= " + Atrapat + "\n"
-                + "Pokebola= " + Pokebola;
+                + "Pokebola= " + Pokebola.toString()+"\n";
     }
     
     
