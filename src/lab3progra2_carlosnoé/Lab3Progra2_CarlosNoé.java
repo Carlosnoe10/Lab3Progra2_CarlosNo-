@@ -169,23 +169,94 @@ public class Lab3Progra2_CarlosNoé {
 
                     case 3:
                         for (int i = 0; i < Equipo.size(); i++) {
-                            if (Equipo.get(i)instanceof FireType) {
-                                System.out.println(Equipo.get(i).toString());
+                            if (Equipo.get(i) instanceof FireType) {
+                                System.out.println(i + ". " + Equipo.get(i).toString());
                             }
                         }
                         for (int i = 0; i < Equipo.size(); i++) {
-                            if (Equipo.get(i)instanceof WaterType) {
-                                System.out.println(Equipo.get(i).toString());
+                            if (Equipo.get(i) instanceof WaterType) {
+                                System.out.println(i + ". " + Equipo.get(i).toString());
                             }
                         }
                         for (int i = 0; i < Equipo.size(); i++) {
-                            if (Equipo.get(i)instanceof GrassType) {
-                                System.out.println(Equipo.get(i).toString());
+                            if (Equipo.get(i) instanceof GrassType) {
+                                System.out.println(i + ". " + Equipo.get(i).toString());
                             }
                         }
                         break;
 
                     case 4:
+                        sc = new Scanner(System.in);
+                        Scanner ints1 = new Scanner(System.in);
+                        boolean Menu2 = true;
+
+                        while (Menu2 != false) {
+                            System.out.println("----Menu Creado----\n"
+                                    + "1. ELIMINAR TIPO FUEGO \n"
+                                    + "2. ELIMINAR TIPO AGUA \n"
+                                    + "3. ELIMINAR TIPO PLANTA \n"
+                                    + "4. VOLVER AL MENU PRINCIPAL");
+                            int elec1 = sc.nextInt();
+                            switch (elec1) {
+                                case 1:
+                                    for (int i = 0; i < Equipo.size(); i++) {
+                                        if (Equipo.get(i) instanceof FireType) {
+                                            System.out.println(i + ". " + Equipo.get(i).toString());
+                                        }
+                                    }
+                                    System.out.println("Ingrese el numero del pokemon que quiere eliminar");
+                                    int DeletPok= ints1.nextInt();
+                                    if (Equipo.get(DeletPok)instanceof FireType) {
+                                        Equipo.remove(DeletPok);
+                                        System.out.println("Se ha eliminado correctamente");
+                                    }else{
+                                        System.out.println("Pokemon no valido");
+                                    }
+                                    
+                                    
+                                    Menu2 = false;
+                                    break;
+                                case 2:
+                                    for (int i = 0; i < Equipo.size(); i++) {
+                                        if (Equipo.get(i) instanceof WaterType) {
+                                            System.out.println(i + ". " + Equipo.get(i).toString());
+                                        }
+                                    }
+                                    System.out.println("Ingrese el numero del pokemon que quiere eliminar");
+                                    int DeletPok1= ints1.nextInt();
+                                    if (Equipo.get(DeletPok1)instanceof WaterType) {
+                                        Equipo.remove(DeletPok1);
+                                        System.out.println("Se ha eliminado correctamente");
+                                    }else{
+                                        System.out.println("Pokemon no valido");
+                                    }
+                                    Menu2 = false;
+                                    break;
+
+                                case 3:
+                                    for (int i = 0; i < Equipo.size(); i++) {
+                                        if (Equipo.get(i) instanceof GrassType) {
+                                            System.out.println(i + ". " + Equipo.get(i).toString());
+                                        }
+                                    }
+                                    System.out.println("Ingrese el numero del pokemon que quiere eliminar");
+                                    int DeletPok2= ints1.nextInt();
+                                    if (Equipo.get(DeletPok2)instanceof GrassType) {
+                                        Equipo.remove(DeletPok2);
+                                        System.out.println("Se ha eliminado correctamente");
+                                    }else{
+                                        System.out.println("Pokemon no valido");
+                                    }
+                                    Menu2 = false;
+                                    break;
+                                case 4:
+
+                                    Menu2 = false;
+                                    break;
+                                default:
+                                    System.out.println("Numero mal ingresado");
+                            }
+                        }
                         break;
 
                     case 5:
