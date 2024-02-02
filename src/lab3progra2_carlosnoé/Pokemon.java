@@ -4,7 +4,7 @@ public class Pokemon {
     public String Nombre;
     public int NumPokeDex;
     public String Naturaleza;
-    public boolean Atrapat;
+    public boolean Atrapat =false;
     public Pokeball Pokebola=null;
 
     public Pokemon() {
