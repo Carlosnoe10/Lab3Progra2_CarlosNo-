@@ -1,14 +1,20 @@
 package lab3progra2_carlosnoé;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
+import javax.swing.colorchooser.ColorChooserComponentFactory;
 
 public class Lab3Progra2_CarlosNoé {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean Bandera = true;
-        ArrayList<Pokemon> Equipo= new ArrayList();
+        JColorChooser colorChooser = new JColorChooser();
+        ArrayList<Pokemon> Equipo = new ArrayList();
+        ArrayList<Pokeball> Balls = new ArrayList();
         while (Bandera != false) {
 
             System.out.println("----MENU PRINCIPAL---- \n"
@@ -38,111 +44,127 @@ public class Lab3Progra2_CarlosNoé {
                                 case 1:
                                     sc = new Scanner(System.in);
                                     System.out.println("Ingrese el nombre");
-                                    String nombre= sc.nextLine();
+                                    String nombre = sc.nextLine();
                                     sc = new Scanner(System.in);
                                     System.out.println("Ingrese su naturaleza");
-                                    String Naturaleza= sc.nextLine();
+                                    String Naturaleza = sc.nextLine();
                                     System.out.println("Ingrese su numero de entrada a la pokedex");
-                                    int Pokenum=ints.nextInt();
+                                    int Pokenum = ints.nextInt();
                                     System.out.println("Ingrese la potencia de su llamarada");
-                                    int Poten= ints.nextInt();
-                                    
-                                    boolean one=VerrNaturaleza(Naturaleza);
+                                    int Poten = ints.nextInt();
+
+                                    boolean one = VerrNaturaleza(Naturaleza);
                                     boolean Zero = NumeroMayora0(Pokenum);
                                     Zero = NumeroMayora0(Poten);
-                                    
-                                    if ((one=false) || (Zero=false)) {
+
+                                    if ((one = false) || (Zero = false)) {
                                         System.out.println("Creacion invalida");
-                                    }else{
-                                        FireType Novo= new FireType(Poten, nombre, Pokenum, Naturaleza, false);
+                                    } else {
+                                        FireType Novo = new FireType(Poten, nombre, Pokenum, Naturaleza, false);
                                         Equipo.add(Novo);
                                         System.out.println("List");
                                     }
-                                    
-                                    Menu1=false;
+
+                                    Menu1 = false;
                                     break;
                                 case 2:
                                     sc = new Scanner(System.in);
                                     System.out.println("Ingrese el nombre");
-                                    String nombre1= sc.nextLine();
+                                    String nombre1 = sc.nextLine();
                                     sc = new Scanner(System.in);
                                     System.out.println("Ingrese su naturaleza");
-                                    String Naturaleza1= sc.nextLine();
+                                    String Naturaleza1 = sc.nextLine();
                                     System.out.println("Ingrese su numero de entrada a la pokedex");
-                                    int Pokenum1=ints.nextInt();
+                                    int Pokenum1 = ints.nextInt();
                                     System.out.println("Ingrese un numero que represente la rapidez al nadar");
-                                    int Aqua= ints.nextInt();
+                                    int Aqua = ints.nextInt();
                                     System.out.println("Ingrese si(1) puede o no(2) estar fuera del agua");
-                                    int boolfuera=ints.nextInt();
-                                    
+                                    int boolfuera = ints.nextInt();
+
                                     boolean Fuera = false;
-                                    boolean one1=VerrNaturaleza(Naturaleza1);
+                                    boolean one1 = VerrNaturaleza(Naturaleza1);
                                     boolean Zero1 = NumeroMayora0(Pokenum1);
                                     Zero1 = NumeroMayora0(Aqua);
                                     switch (boolfuera) {
                                         case 1:
-                                            Fuera=true;
+                                            Fuera = true;
                                             break;
                                         case 2:
-                                            Fuera= false;
-                                            break;                                     
+                                            Fuera = false;
+                                            break;
                                         default:
                                             System.out.println("Valor invalido");
-                                            Zero1=false;
-                                    } 
-                                    
-                                    if ((one1=false) || (Zero1=false)) {
+                                            Zero1 = false;
+                                    }
+
+                                    if ((one1 = false) || (Zero1 = false)) {
                                         System.out.println("Creacion invalida");
-                                    }else{
-                                        WaterType wata= new WaterType(Fuera, Aqua, nombre1, Pokenum1, Naturaleza1, false);
+                                    } else {
+                                        WaterType wata = new WaterType(Fuera, Aqua, nombre1, Pokenum1, Naturaleza1, false);
                                         Equipo.add(wata);
                                         System.out.println("List");
                                     }
-                                    
-                                    Menu1=false;
-                                    break;    
-    
+
+                                    Menu1 = false;
+                                    break;
+
                                 case 3:
                                     sc = new Scanner(System.in);
                                     System.out.println("Ingrese el nombre");
-                                    String nombre2= sc.nextLine();
+                                    String nombre2 = sc.nextLine();
                                     sc = new Scanner(System.in);
                                     System.out.println("Ingrese su naturaleza");
-                                    String Naturaleza2= sc.nextLine();
+                                    String Naturaleza2 = sc.nextLine();
                                     System.out.println("Ingrese el habitat");
                                     sc = new Scanner(System.in);
-                                    String Habitat= sc.nextLine();
+                                    String Habitat = sc.nextLine();
                                     System.out.println("Ingrese su numero de entrada a la pokedex");
-                                    int Pokenum2=ints.nextInt();
+                                    int Pokenum2 = ints.nextInt();
                                     System.out.println("Ingrese el dominio sobre las plantas (Numero)");
-                                    int DOM= ints.nextInt();
-                                    
-                                    boolean one2=VerrNaturaleza(Naturaleza2);
+                                    int DOM = ints.nextInt();
+
+                                    boolean one2 = VerrNaturaleza(Naturaleza2);
                                     boolean Zero2 = NumeroMayora0(Pokenum2);
                                     Zero2 = Numero0a100(DOM);
-                                    
-                                    if ((one2=false) || (Zero2=false)) {
+
+                                    if ((one2 = false) || (Zero2 = false)) {
                                         System.out.println("Creacion invalida");
-                                    }else{
-                                        GrassType plante= new GrassType(Habitat, DOM, nombre2, Pokenum2, Naturaleza2, false);
+                                    } else {
+                                        GrassType plante = new GrassType(Habitat, DOM, nombre2, Pokenum2, Naturaleza2, false);
                                         Equipo.add(plante);
                                         System.out.println("List");
                                     }
-                                    
-                                    Menu1=false;
+
+                                    Menu1 = false;
                                     break;
                                 case 4:
-                                    
-                                    Menu1=false;
-                                    break;    
+
+                                    Menu1 = false;
+                                    break;
                                 default:
                                     System.out.println("Numero mal ingresado");
                             }
                         }
-
                         break;
 
                     case 2:
+                        sc = new Scanner(System.in);
+                        Scanner ints2 = new Scanner(System.in);
+                        int resultado = JOptionPane.showConfirmDialog(null, colorChooser, "Selecciona un color para la pokebola", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+                        Color color = colorChooser.getColor();
+                        System.out.println("Ingrese su numero de serie");
+                        int Serie = ints2.nextInt();
+                        ints2 = new Scanner(System.in);
+                        System.out.println("Ingrese su eficiencia del 1 al 3");
+                        int Efect = ints2.nextInt();
+                        boolean marck = Numero1a3(Efect);
+
+                        if (marck = false) {
+                            System.out.println("Valor invalido");
+                        } else {
+                            Pokeball Pocket = new Pokeball(color, Serie, Efect);
+                        }
+
                         break;
 
                     case 3:
@@ -188,6 +210,7 @@ public class Lab3Progra2_CarlosNoé {
         }
 
     }
+
     public static boolean NumeroMayora0(int numero) {
         if (numero > 0) {
             return true;
