@@ -17,8 +17,10 @@ public class Lab3Progra2_CarlosNoé {
         ArrayList<Pokeball> Balls = new ArrayList();
         Random random = new Random();
         Pokemon a = new Pokemon();
+        FireType c= new FireType("a", 0, "Misteriosa", true);
         Equipo.add(a);
-        Pokeball b = new Pokeball(1);
+        Equipo.add(c);
+        Pokeball b = new Pokeball(Color.yellow, 19, 1);
         Balls.add(b);
         while (Bandera != false) {
 
@@ -169,6 +171,7 @@ public class Lab3Progra2_CarlosNoé {
                         } else {
                             Pokeball Pocket = new Pokeball(color, Serie, Efect);
                             System.out.println("List");
+                            Balls.add(Pocket);
                         }
 
                         break;
@@ -331,6 +334,7 @@ public class Lab3Progra2_CarlosNoé {
                         break;
 
                     case 6:
+                        sc = new Scanner(System.in);
                         Scanner ints4 = new Scanner(System.in);
                         for (int i = 0; i < Equipo.size(); i++) {
                             System.out.println(i + " " + Equipo.get(i).toString());
@@ -347,6 +351,7 @@ public class Lab3Progra2_CarlosNoé {
                                 boolean Menu21 = true;
 
                                 while (Menu21 != false) {
+                                    sc = new Scanner(System.in);
                                     System.out.println("----Menu Modificador----\n"
                                             + "1. CAMBIAR NOMBRE \n"
                                             + "2. CAMBIAR NUMERO DE ENTRADA \n"
@@ -358,14 +363,17 @@ public class Lab3Progra2_CarlosNoé {
                                     switch (elec1) {
                                         case 1:
                                             System.out.println("Ingrese el nuevo nombre");
+                                            sc = new Scanner(System.in);
                                             String NuvoNombre = sc.nextLine();
                                             Equipo.get(elec3).setNombre(NuvoNombre);
+                                            System.out.println("Listo");
                                             Menu21 = false;
                                             break;
                                         case 2:
                                             System.out.println("Ingrese el nuevo numero de entrada");
                                             int NuevoNume = ints12.nextInt();
                                             Equipo.get(elec3).setNumPokeDex(NuevoNume);
+                                            System.out.println("Listo");
                                             Menu21 = false;
                                             break;
 
@@ -374,6 +382,7 @@ public class Lab3Progra2_CarlosNoé {
                                                 System.out.println("Ingrese la nueva potencia de llamas");
                                                 int NuevoNume2 = ints12.nextInt();
                                                 ((FireType) Equipo.get(elec3)).setPotenciaLlamas(NuevoNume2);
+                                                System.out.println("Listo");
                                             } else {
                                                 System.out.println("Pokemon de tipo no valido");
                                             }
@@ -387,9 +396,11 @@ public class Lab3Progra2_CarlosNoé {
                                                 switch (NuevoNume2) {
                                                     case 1:
                                                         ((WaterType) Equipo.get(elec3)).setVivirAgua(true);
+                                                        System.out.println("Listo");
                                                         break;
                                                     case 2:
                                                         ((WaterType) Equipo.get(elec3)).setVivirAgua(true);
+                                                        System.out.println("Listo");
                                                         break;
                                                     default:
                                                         System.out.println("Numero no valido");
@@ -406,6 +417,7 @@ public class Lab3Progra2_CarlosNoé {
                                                 System.out.println("Ingrese el nuevo habitat");
                                                 String NuevoNume2 = sc.nextLine();
                                                 ((GrassType) Equipo.get(elec3)).setHabitat(NuevoNume2);
+                                                System.out.println("Listo");
                                             } else {
                                                 System.out.println("Pokemon de tipo no valido");
                                             }
