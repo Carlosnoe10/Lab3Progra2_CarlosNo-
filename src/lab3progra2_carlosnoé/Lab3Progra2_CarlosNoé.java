@@ -331,6 +331,98 @@ public class Lab3Progra2_CarlosNoé {
                         break;
 
                     case 6:
+                        Scanner ints4 = new Scanner(System.in);
+                        for (int i = 0; i < Equipo.size(); i++) {
+                            System.out.println(i + " " + Equipo.get(i).toString());
+                        }
+                        int elec3 = ints4.nextInt();
+                        boolean Verificador2 = DentroDelArrayList2(Equipo, elec3);
+                        if (Verificador2 = false) {
+                            System.out.println("Mal Ingresado");
+                        } else {
+                            Pokemon sub = Equipo.get(elec3);
+                            if (sub.isAtrapat() == true) {
+                                sc = new Scanner(System.in);
+                                Scanner ints12 = new Scanner(System.in);
+                                boolean Menu21 = true;
+
+                                while (Menu21 != false) {
+                                    System.out.println("----Menu Modificador----\n"
+                                            + "1. CAMBIAR NOMBRE \n"
+                                            + "2. CAMBIAR NUMERO DE ENTRADA \n"
+                                            + "3. SI ES Fire-Type: potencia de llamas.\n"
+                                            + "4. ○ SI ES Water-Type: puede vivir fuera del agua.\n"
+                                            + "5. SI ES Grass-Type: habitat. \n"
+                                            + "6. VOLVER AL MENU PRINCIPAL");
+                                    int elec1 = sc.nextInt();
+                                    switch (elec1) {
+                                        case 1:
+                                            System.out.println("Ingrese el nuevo nombre");
+                                            String NuvoNombre = sc.nextLine();
+                                            Equipo.get(elec3).setNombre(NuvoNombre);
+                                            Menu21 = false;
+                                            break;
+                                        case 2:
+                                            System.out.println("Ingrese el nuevo numero de entrada");
+                                            int NuevoNume = ints12.nextInt();
+                                            Equipo.get(elec3).setNumPokeDex(NuevoNume);
+                                            Menu21 = false;
+                                            break;
+
+                                        case 3:
+                                            if (Equipo.get(elec3) instanceof FireType) {
+                                                System.out.println("Ingrese la nueva potencia de llamas");
+                                                int NuevoNume2 = ints12.nextInt();
+                                                ((FireType) Equipo.get(elec3)).setPotenciaLlamas(NuevoNume2);
+                                            } else {
+                                                System.out.println("Pokemon de tipo no valido");
+                                            }
+
+                                            Menu21 = false;
+                                            break;
+                                        case 4:
+                                            if (Equipo.get(elec3) instanceof WaterType) {
+                                                System.out.println("Ingrese si(1) puede o no(2) estar fuera del agua");
+                                                int NuevoNume2 = ints12.nextInt();
+                                                switch (NuevoNume2) {
+                                                    case 1:
+                                                        ((WaterType) Equipo.get(elec3)).setVivirAgua(true);
+                                                        break;
+                                                    case 2:
+                                                        ((WaterType) Equipo.get(elec3)).setVivirAgua(true);
+                                                        break;
+                                                    default:
+                                                        System.out.println("Numero no valido");
+                                                }
+
+                                            } else {
+                                                System.out.println("Pokemon de tipo no valido");
+                                            }
+                                            Menu21 = false;
+                                            break;
+
+                                        case 5:
+                                            if (Equipo.get(elec3) instanceof GrassType) {
+                                                System.out.println("Ingrese el nuevo habitat");
+                                                String NuevoNume2 = sc.nextLine();
+                                                ((GrassType) Equipo.get(elec3)).setHabitat(NuevoNume2);
+                                            } else {
+                                                System.out.println("Pokemon de tipo no valido");
+                                            }
+                                            Menu21 = false;
+                                            break;
+                                        case 6:
+                                            Menu21 = false;
+                                            break;
+                                        default:
+                                            System.out.println("Numero mal ingresado");
+                                    }
+                                }
+                            } else {
+                                System.out.println("No esta capturado");
+                            }
+
+                        }
                         break;
 
                     case 7:
@@ -390,6 +482,14 @@ public class Lab3Progra2_CarlosNoé {
     }
 
     public static boolean DentroDelArrayList(ArrayList<Pokeball> asan, int num) {
+        if ((num < 0) && (num > asan.size())) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static boolean DentroDelArrayList2(ArrayList<Pokemon> asan, int num) {
         if ((num < 0) && (num > asan.size())) {
             return false;
         } else {
