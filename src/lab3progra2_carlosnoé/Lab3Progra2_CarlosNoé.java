@@ -94,7 +94,7 @@ public class Lab3Progra2_CarlosNoé {
                                     if ((one1=false) || (Zero1=false)) {
                                         System.out.println("Creacion invalida");
                                     }else{
-                                        WaterType wata= new WaterType(Fuera, Aqua, nombre1, Pokenum1, Naturaleza1, Zero1);
+                                        WaterType wata= new WaterType(Fuera, Aqua, nombre1, Pokenum1, Naturaleza1, false);
                                         Equipo.add(wata);
                                         System.out.println("List");
                                     }
@@ -124,8 +124,8 @@ public class Lab3Progra2_CarlosNoé {
                                     if ((one2=false) || (Zero2=false)) {
                                         System.out.println("Creacion invalida");
                                     }else{
-                                        GrassType plante= GrassType();
-                                        Equipo.add(Novo);
+                                        GrassType plante= new GrassType(Habitat, DOM, nombre2, Pokenum2, Naturaleza2, false);
+                                        Equipo.add(plante);
                                         System.out.println("List");
                                     }
                                     
