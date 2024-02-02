@@ -10,6 +10,10 @@ public class Pokeball {
     public Pokeball() {
     }
 
+    public Pokeball(int Eficiencia) {
+        this.Eficiencia = Eficiencia;
+    }
+
     
     
     public Pokeball(Color color, int NumeroSerie, int Eficiencia) {

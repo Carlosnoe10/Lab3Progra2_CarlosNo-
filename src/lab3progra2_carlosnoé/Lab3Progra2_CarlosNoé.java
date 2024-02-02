@@ -16,6 +16,10 @@ public class Lab3Progra2_CarlosNoé {
         ArrayList<Pokemon> Equipo = new ArrayList();
         ArrayList<Pokeball> Balls = new ArrayList();
         Random random = new Random();
+        Pokemon a = new Pokemon();
+        Equipo.add(a);
+        Pokeball b = new Pokeball(1);
+        Balls.add(b);
         while (Bandera != false) {
 
             System.out.println("----MENU PRINCIPAL---- \n"
@@ -279,7 +283,7 @@ public class Lab3Progra2_CarlosNoé {
                             Pokemon Menos = Equipo.get(RANDOM);
                             if (Menos.isAtrapat() == false) {
                                 System.out.println("EL POKEMON -" + Menos.getNombre() + "- HA APARECIDO");
-                                System.out.println("Ingrese huir(1) o Capturar(0)");
+                                System.out.println("Ingrese huir(1) o Capturar(2)");
                                 int Safe = ints3.nextInt();
                                 switch (Safe) {
                                     case 1:
@@ -291,6 +295,7 @@ public class Lab3Progra2_CarlosNoé {
                                             if (sub.getEficiencia() == Ran2) {
                                                 Balls.remove(elec2);
                                                 Equipo.get(RANDOM).setPokebola(sub);
+                                                System.out.println("Ha sido atrapado");
                                             } else {
                                                 Balls.remove(elec2);
                                                 System.out.println("El Pokemon ha escapado");
@@ -300,6 +305,7 @@ public class Lab3Progra2_CarlosNoé {
                                             if (sub.getEficiencia() == Ran2) {
                                                 Balls.remove(elec2);
                                                 Equipo.get(RANDOM).setPokebola(sub);
+                                                System.out.println("Ha sido atrapado");
                                             } else {
                                                 Balls.remove(elec2);
                                                 System.out.println("El Pokemon ha escapado");
@@ -307,6 +313,7 @@ public class Lab3Progra2_CarlosNoé {
                                         } else {
                                             Balls.remove(elec2);
                                             Equipo.get(RANDOM).setPokebola(sub);
+                                            System.out.println("Ha sido atrapado");
                                         }
 
                                         break;
@@ -383,7 +390,7 @@ public class Lab3Progra2_CarlosNoé {
     }
 
     public static boolean DentroDelArrayList(ArrayList<Pokeball> asan, int num) {
-        if ((num < 0) || (num > asan.size())) {
+        if ((num < 0) && (num > asan.size())) {
             return false;
         } else {
             return true;
